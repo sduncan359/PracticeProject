@@ -1,7 +1,7 @@
 name: Lint practice
 on: push
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -9,24 +9,10 @@ jobs:
       - name: Get dependencies
         run: npm i
       - name: Lint code
-        run: npm run lint
-  test:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Get dependencies
-        run: npm i
+        run: npm run lint 
       - name: Run tests      
-        run: npm test
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Get dependencies
-        run: npm i
+        run: npm test  
       - name: Build application      
         run: npm run build
+      - name: Deploy code
+        run: echo "Fake deploy..."
