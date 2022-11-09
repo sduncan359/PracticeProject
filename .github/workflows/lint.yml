@@ -1,0 +1,32 @@
+name: Lint practice
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: action/checkout
+      - name: Get dependencies
+        run: npm i
+      - name: Lint code
+        run: npm lint
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: action/checkout
+      - name: Get dependencies
+        run: npm i
+      - name: Run tests      
+        run: npm test
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: action/checkout
+      - name: Get dependencies
+        run: npm i
+      - name: Build application      
+        run: npm build
