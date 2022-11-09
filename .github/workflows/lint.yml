@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: action/checkout
+        uses: actions/checkout
       - name: Get dependencies
         run: npm i
       - name: Lint code
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: action/checkout
+        uses: actions/checkout
       - name: Get dependencies
         run: npm i
       - name: Run tests      
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: action/checkout
+        uses: actions/checkout
       - name: Get dependencies
         run: npm i
       - name: Build application      
